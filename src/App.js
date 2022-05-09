@@ -1,23 +1,20 @@
+import {useState} from "react"
 import logo from './logo.svg';
 import './App.css';
+import Formcom from './componets/Formcom';
+import Boxdisplay from './componets/Boxdisplay';
 
 function App() {
+const [colorList, setColorList] = useState([])
+
+  const handleNewColor = (newColor) =>{
+setColorList([...colorList, newColor])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Formcom onNewColor = {handleNewColor}/>
+      <Boxdisplay colorList={colorList}/>
     </div>
   );
 }
